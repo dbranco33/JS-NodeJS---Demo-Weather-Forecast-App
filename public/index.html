@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<!--
+ * Project: Weather App in Node JS.
+ * Author: Daniel L.Branco
+ * Description: Static html file to provide the user input field, 
+ * buttons (for API calls), and show the weather information at screen.
+ * Date Created: 2017-11-10
+ * Last Modified: 2017-11-15
+ -->
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>single_page</title>
+    <!--CSS-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="assets/css/styles.min.css">
+</head>
+
+<body>
+    <div id="page_content">
+        <h1 class="text-primary">Weather App</h1>
+        <p class="text-justify text-info" style="margin:0;"><strong>Instructions 1:</strong> Enter a city name* and click the 'Show Info ...' button to have the current city weather information.</p>
+        <p class="text-justify text-info" style="margin:0;"><strong>Instructions 2:</strong> Each 'Show Info ...' button has a label indicating which Weather API is used to get the weather info.</p>
+        <p class="text-justify text-info"><strong>Instructions 3:</strong> click the 'Clear Results' button to clear all the results showed in the page and the cookie for previous queries.</p>
+        <div id="input_elements" style="margin-top:0;margin-bottom:10px;">
+            <label>Please enter the name of the city here: </label>
+            <input type="text" name="city" placeholder="e.g. Winnipeg ..." id="city" style="padding:0.5%;padding-left:0.5%;padding-top:0.5%;padding-bottom:0.5%;padding-right:0.5%;">
+        </div>
+        <div id="app_buttons" style="margin-bottom:10px;">
+            <button class="btn btn-default" type="button" id="show_info_1" style="margin-right:0.5%;">Show Info from <span class="label label-default" style="font-size:12px;">Dark Sky APl</span></button>
+            <button class="btn btn-default" type="button" id="show_info_2" style="margin-right:0.5%;">Show Info from <span class="label label-default" style="font-size:12px;">Apixu API</span></button>
+            <button class="btn btn-default" type="button" id="show_info_3" style="margin-right:0.5%;">Show Info from <span class="label label-default" style="font-size:12px;">Openweather API</span></button>
+            <button class="btn btn-default" type="button" id="show_info_4" style="margin-right:0.5%;">Show Info from <span class="label label-default" style="font-size:12px;">Yahoo APl</span></button>
+            <button class="btn btn-default" type="button" id="clear_info">Clear Results</button>
+        </div>
+        <div id="cookie_created">
+            <h4>Cookies from previous queries*<span style="color: #F19B83;">(they are updated when page reloads)</span></h4>
+            <p id="test1"></p>
+        </div>
+        <div id="weather_info">
+            <div class="table-responsive">
+                <table class="table table-striped table-bordered table-condensed">
+                    <thead>
+                        <tr class="info">
+                            <th>City </th>
+                            <th>Temp Now (°C)</th>
+                            <th>Min Temp (°C)</th>
+                            <th>Max Temp (°C) </th>
+                            <th>Prob. Snow (%)</th>
+                            <th>Prob. Rain (%)</th>
+                            <th>Precipitation Type</th>
+                        </tr>
+                    </thead>
+                    <tbody id="weather_data"></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <!--JavaScript-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+    <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+    <script type="text/javascript" src="/assets/js/event_listeners.js"></script>
+</body>
+
+</html>
