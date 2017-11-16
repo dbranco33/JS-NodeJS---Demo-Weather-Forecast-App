@@ -32,6 +32,11 @@ app.get('/', (request, response) => {
 	response.send(publicPath + "index.html");
 });
 
+// Set our default template engine to "jade"
+// which prevents the need for extensions
+// (although you can still mix and match)
+app.set('view engine', 'jade');
+
 //starts the web server and socket.io server listening.
 //sets the port '3000' for localhost plus an error message.
 server.listen(process.env.PORT || 3000, () => {
