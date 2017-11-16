@@ -13,7 +13,7 @@ const path = require('path');
 const http = require('http');
 const express = require('express');
 const socketIO = require('socket.io');
-const weather = require('./weather/weather_app.js');
+const weather = require('./server/weather/weather_app.js');
 
 //variables for Web Server and Server Listening.
 var app = express();
@@ -21,7 +21,7 @@ var server = http.createServer(app);
 var io = socketIO(server);
 
 //variable for path for public folder (from wich we'll serve static files).
-const publicPath = path.join(__dirname, '../public');
+const publicPath = path.join(__dirname, './public');
 
 //sets static files at web server.
 app.use(express.static(publicPath));
