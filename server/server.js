@@ -34,7 +34,7 @@ app.get('/', (request, response) => {
 
 //starts the web server and socket.io server listening.
 //sets the port '3000' for localhost plus an error message.
-server.listen(3000, () => {
+server.listen(process.env.PORT || 3000, () => {
 	console.log("Server is up on port 3000.")
 });
 
