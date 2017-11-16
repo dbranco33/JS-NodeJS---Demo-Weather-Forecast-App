@@ -21,7 +21,7 @@ var weatherInfo = function show_weather_info(city, lat, lng, callback) {
 
 	//API request to Yahoo Weather API.
 	request({
-		url: 'https://api.apixu.com/v1/forecast.json?key=83f785b57e49485fb4214121171411&q=' 
+		url: 'https://api.apixu.com/v1/forecast.json?key=' + apiKey + '&q=' 
 			+ lat + ',' + lng,
 		json:true
 	}, (error, response, body) => {	
@@ -31,14 +31,17 @@ var weatherInfo = function show_weather_info(city, lat, lng, callback) {
 		} else if(response.statusCode === 400) {
 			callback("Unable to connect to take weather info.");
 		} else if(response.statusCode === 200) {
+			var chance_of_rain = body.forecast.forecastday[0].hour[0].chance_of_rain;
+			var chance_of_snow = body.forecast.forecastday[0].hour[0].chance_of_snow;
+
 			callback(undefined, 
 			{
 				name_of_city: city,
 				current_temperature: body.current.temp_c,
 				minTemperature: body.forecast.forecastday[0].day.mintemp_c,
 				maxTemperature: body.forecast.forecastday[0].day.maxtemp_c,
-				prob_rain: ((body.forecast.forecastday[0].hour[0].chance_of_rain)*100).toFixed(2),
-				prob_snow: ((body.forecast.forecastday[0].hour[0].chance_of_snow)*100).toFixed(2),
+				prob_rain: Number(chance_of_rain).toFixed(2),
+				prob_snow: Number(chance_of_snow).toFixed(2),
 				prec_type: 'not given'
 			});
 		} 
