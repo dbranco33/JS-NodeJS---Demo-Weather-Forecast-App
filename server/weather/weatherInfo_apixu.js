@@ -5,7 +5,7 @@
     'lat' and 'lng'.
     Author: Daniel Lopes Branco
     Date Created: 2015-11-12
-    Last Update: 2017-11-15
+    Last Update: 2018-01-23
 */
 
 //import necessary module
@@ -31,8 +31,9 @@ var weatherInfo = function show_weather_info(city, lat, lng, callback) {
 		} else if(response.statusCode === 400) {
 			callback("Unable to connect to take weather info.");
 		} else if(response.statusCode === 200) {
-			var chance_of_rain = body.forecast.forecastday[0].hour[0].chance_of_rain;
-			var chance_of_snow = body.forecast.forecastday[0].hour[0].chance_of_snow;
+			//--> the Hourly wether was removed from free plans.
+			// var chance_of_rain = body.forecast.forecastday[0].hour[0].chance_of_rain;
+			// var chance_of_snow = body.forecast.forecastday[0].hour[0].chance_of_snow;
 
 			callback(undefined, 
 			{
@@ -40,8 +41,11 @@ var weatherInfo = function show_weather_info(city, lat, lng, callback) {
 				current_temperature: body.current.temp_c,
 				minTemperature: body.forecast.forecastday[0].day.mintemp_c,
 				maxTemperature: body.forecast.forecastday[0].day.maxtemp_c,
-				prob_rain: Number(chance_of_rain).toFixed(2),
-				prob_snow: Number(chance_of_snow).toFixed(2),
+				//--> these values are no longer given at API free plan
+				// prob_rain: Number(chance_of_rain).toFixed(2),
+				// prob_snow: Number(chance_of_snow).toFixed(2),
+				prob_rain: 'not given',
+				prob_snow: 'not given',
 				prec_type: 'not given'
 			});
 		} 
