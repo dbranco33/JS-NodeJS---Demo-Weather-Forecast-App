@@ -11,11 +11,12 @@ Things like: current temperature, max and min temperature, prob of snow and of r
 ### Some details about the app: 
 
 - It's a weather reader from several sources using Node.js
-- Sources are:    Dark Sky API, Apixu API, Open Weather API, Yahoo API
-- Sources are staked statically
-- User enter a city name in the specific input field and press a button to show weather forecast
-- Results are showed without reloading the page into a list
-- User can add an infinite number of cities where to look at the weather (one at time)
-- If the user enters further queries, then the new forecasts appear above the previous forecast
+- Sources are:    Dark Sky API, Apixu API, Open Weather API, Yahoo API.
+- Sources are staked statically.
+- User enter a city name in the specific input field and press a button to show weather forecast.
+- Results are showed without reloading the page into a list.
+- User can add an infinite number of cities where to look at the weather (one at time).
+- If the user enters further queries, then the new forecasts appear above the previous forecast.
 - Results are cleaned without reloading the page through a button with a custom Javascritp code.
 - After closing the browser you can see your previous queries. An auto identifier is assigned, and it is written in cookies. 
+- Application deployed at https://www.heroku.com/
