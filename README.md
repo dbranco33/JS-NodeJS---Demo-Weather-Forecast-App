@@ -1,7 +1,7 @@
 # NodeJS - Demo Weather Forecast Application
 
 Single Page Application using Node JS that allows the user to see the weather information for a city in the current day.      
-Things like: current temperature, max and min temperature, prob of snow and of rain*, precipitation type*.     
+Things like: current temperature, max and min temperature, probability of snow and of rain*, precipitation type*.     
 (*Observation: through the Dark Sky API only)
 
 #### Live-Demo: https://weatherapp-nodejs-demo.herokuapp.com/
